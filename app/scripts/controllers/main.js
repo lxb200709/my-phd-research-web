@@ -8,10 +8,11 @@
  * Controller of the myphdresearchApp
  */
 angular.module('myphdresearchApp')
-  .controller('MainCtrl', function () {
+    .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+    });
+
