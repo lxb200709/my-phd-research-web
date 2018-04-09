@@ -16,46 +16,50 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'd3Module'
+    'd3Module',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $stateProvider
+      .state('homePage', {
+        url: '/',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/xiangbo.li/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .state('playersPage', {
+        url: '/xli/players',
+        templateUrl: '/views/players.html',
+        controller: 'PlayersCtrl',
+        controllerAs: 'players'
       })
-      .when('/xiangbo.li/projects', {
-        templateUrl: 'views/projects.html',
-        controller: 'ProjectCtrl',
-        controllerAs: 'projects'
-      })
-      .when('/xiangbo.li/publications', {
-        templateUrl: 'views/publications.html',
+      .state('publicationsPage', {
+        url: '/xli/publications',
+        templateUrl: '/views/publications.html',
         controller: 'PublicationCtrl',
         controllerAs: 'publications'
       })
-      .when('/xiangbo.li/resources', {
-        templateUrl: 'views/resources.html',
+      .state('resourcesPage', {
+        url: '/xli/resources',
+        templateUrl: '/views/resources.html',
         controller: 'ResourceCtrl',
         controllerAs: 'resources'
       })
-      .when('/xiangbo.li/blog', {
-        templateUrl: 'views/blog.html',
+      .state('blogPage', {
+        url: '/xli/blog',
+        templateUrl: '/views/blog.html',
         controller: 'BlogCtrl',
         controllerAs: 'blog'
       })
-      .when('/xiangbo.li/cv', {
-        templateUrl: 'views/cv.html',
+      .state('cvPage', {
+        url: '/xli/cv',
+        templateUrl: '/views/cv.html',
         controller: 'CvCtrl',
         controllerAs: 'cv'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
+    $urlRouterProvider.otherwise('/');
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
   });
