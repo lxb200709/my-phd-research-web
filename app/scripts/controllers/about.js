@@ -12,6 +12,5 @@ angular.module('myphdresearchApp')
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
     ];
   });
